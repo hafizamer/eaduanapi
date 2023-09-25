@@ -1,0 +1,15 @@
+version: "3.1"
+
+services:
+    db:
+        image: "mariadb:lts"
+        restart: always
+        environment:
+            MARIADB_ROOT_PASSWORD: password
+
+    server:
+        image: "nginx:stable-alpine"
+        restart: unless-stopped
+
+    redis:
+        image: "redis:alpine"
